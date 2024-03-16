@@ -1,0 +1,62 @@
+img{
+    width: 35%;
+}
+
+.card{
+    align-items: center;
+}
+
+.img_mark{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+.container{
+
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  
+}
+
+.row{
+    width: 60%;
+}
+
+.text-description{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.text{
+
+    width: 70%;
+    justify-content: center;
+    align-content: center;
+}
+
+.specifications{
+
+    color: black;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+    
+.specifications:hover{
+    
+    color:dodgerblue;
+    text-shadow:  dodgerblue 1px 0 10px;
+    
+}
+
+.card-img-top{
+    display: flex;
+    padding: 5px 0 5px 0;
+}
