@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "desafio_01": {
+    "desafio_2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/desafio_01",
+            "outputPath": "dist/desafio_2",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "desafio_01:build:production"
+              "buildTarget": "desafio_2:build:production"
             },
             "development": {
-              "buildTarget": "desafio_01:build:development"
+              "buildTarget": "desafio_2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "desafio_01:build"
+            "buildTarget": "desafio_2:build"
           }
         },
         "test": {
@@ -106,6 +106,6 @@
     }
   },
   "cli": {
-    "analytics": "415d684d-cb7b-4271-bde0-888db50ae527"
+    "analytics": "81f35732-27dd-4254-bad0-a73ab4029e07"
   }
 }

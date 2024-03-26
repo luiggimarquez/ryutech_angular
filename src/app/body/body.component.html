@@ -1,70 +1,127 @@
-<div class="img_mark">
-    <img src="../../assets/redragon.jpg" alt="imagen de marca del producto">
+<div class="check_box border">
+
+    <h2>Listado General de Alumnos</h2>
+
+    <div class="form-check"> 
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (change)="filterAge()" [checked]="optionAge">
+        <label class="form-check-label" for="flexCheckDefault">
+        <span [ngClass]="hideAge ? 'bold':'' ">Menores de edad</span>
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)="filterMan();" [checked]="optionMan">
+        <label class="form-check-label" for="flexCheckChecked">
+        <span [ngClass]="hideWoman ? 'bold':'' ">Hombres</span>
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" (change)=" filterWoman();" [checked]="optionWoman" >
+        <label class="form-check-label" for="flexCheckChecked">
+        <span [ngClass]="hideMan ? 'bold':'' ">Mujeres</span>
+        </label>
+        
+    </div>
+
 </div>
 
-<h2>Teclado Gamers Redragon -  Argentina</h2>
+<ul>
+    @if(hideAge){
 
-<section class="text-description">
+    <li *ngFor="let usuario of usuarios" class="vineta">
+       
+        @if(usuario.age<18){
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{usuario.img}}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">{{usuario.name | uppercase }}</h5>
+                    <p class="card-text" [ngClass]="hideAge ? 'bold':'' ">Edad: {{usuario.age}}</p>
+                    <p class="card-text">Sexo: {{usuario.sex}}</p>
+                    <p class="card-text">Carrera: {{usuario.career}}</p>
+                    <p class="card-text"><small class="text-muted">Last updated:  {{usuario.date | date }}</small></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        }
+    </li>
+    }
 
-    <p class="text">¡Sumérgete en la acción con nuestra colección de teclados gamers! Diseñados para ofrecerte la máxima precisión 
-        y rendimiento, nuestros teclados están listos para llevar tus habilidades al siguiente nivel. Desde juegos de 
-        ritmo acelerado hasta batallas épicas, estos teclados están diseñados para soportar cualquier desafío que enfrentes en el mundo digital.</p>
-    <p class="text">Cada teclado está equipado con características avanzadas que te brindarán una ventaja competitiva en cada partida. 
-        Con teclas mecánicas de respuesta rápida, retroiluminación RGB personalizable y una construcción duradera, nuestros 
-        teclados están diseñados para destacar en cualquier situación de juego.</p>
-    <p class="text">Descubre nuestra selección y elige el teclado que se adapte perfectamente a tu estilo de juego y personalidad.
-         ¡Prepárate para dominar el campo de batalla y alcanzar nuevas alturas en tus aventuras virtuales con nuestros teclados gamers!</p>
-    
-</section>
+    @else if (hideMan){
 
-<div class="container">
-<div class="row row-cols-1 row-cols-md-3 g-3">
-    <div class="col">
-      <div class="card h-100">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_600237-MLU72568805002_112023-O.webp" class="card-img-top align-middle" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Fizz Pro K616</h5>
-          <p class="card-text">
-            Conector USB-C 2.4<br>
-            Con recepción inalámbrica<br>
-            Con interfaz USB<br>
-            Con Bluetooth<br>
-            Alcance inalámbrico 10 m
-            </p>
-            <a href="https://redragon.es/products/best-seller/teclado-mecanico-60-fizz-pro/" class="specifications" target="_blank" and rel="noopener noreferrer"><strong>Especificaciones</strong></a>
-
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_672949-MLA70178630019_062023-O.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">K619w Horus</h5>
-          <p class="card-text">Switch Redragon Red LP<br>
-            Conector USB-C<br>
-            Recepción inalámbrica: No<br>
-            Interfaz USB<br>
-            Bluetooth: No
-          </p>
-          <a href="https://redragon.es/products/best-seller/teclado-low-profile-horus-tkl-fullsize-60/" class="specifications" target="_blank" and rel="noopener noreferrer"><strong>Especificaciones</strong></a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_920486-MLA47091281176_082021-O.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Dragonborn K630</h5>
-          <p class="card-text">Switch Redragon Red<br>
-            Conector USB-C<br>
-            Recepción inalámbrica: No<br>
-            Interfaz USB<br>
-            Bluetooth: No</p>
-            <a href="https://redragon.es/products/best-seller/teclado-mecanico-60-dragonborn-k630/" class="specifications" target="_blank" and rel="noopener noreferrer"><strong>Especificaciones</strong></a>
-        </div>
-      </div>
-    </div>
+        <li *ngFor="let usuario of usuarios" class="vineta">
    
-  </div>
-</div>
+            @if(usuario.sex !== 'masculino'){
+                <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{usuario.img}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{usuario.name | uppercase }}</h5>
+                      <p class="card-text">Edad: {{usuario.age}}</p>
+                      <p class="card-text" [ngClass]="hideMan ? 'bold':'' ">Sexo: {{usuario.sex}}</p>
+                      <p class="card-text">Carrera: {{usuario.career}}</p>
+                      <p class="card-text"><small class="text-muted">Last updated:  {{usuario.date | date }}</small></p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            }
+        </li>
+
+
+    }
+    @else if (hideWoman){
+
+        <li *ngFor="let usuario of usuarios" class="vineta">
+   
+            @if(usuario.sex !== 'femenino'){
+                <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{usuario.img}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{usuario.name | uppercase }}</h5>
+                      <p class="card-text">Edad: {{usuario.age}}</p>
+                      <p class="card-text" [ngClass]="hideWoman ? 'bold':'' ">Sexo: {{usuario.sex}}</p>
+                      <p class="card-text">Carrera: {{usuario.career}}</p>
+                      <p class="card-text"><small class="text-muted">Last updated:  {{usuario.date | date }}</small></p>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            }
+        </li>
+
+    }@else{
+
+        <li *ngFor="let usuario of usuarios" class="vineta">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{usuario.img}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{usuario.name | uppercase }}</h5>
+                      <p class="card-text">Edad: {{usuario.age}}</p>
+                      <p class="card-text">Sexo: {{usuario.sex}}</p>
+                      <p class="card-text">Carrera: {{usuario.career}}</p>
+    
+                      <p class="card-text"><small class="text-muted">Last updated:  {{usuario.date | date }}</small></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </li>
+    }
+<ul>
